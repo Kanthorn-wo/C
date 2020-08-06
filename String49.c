@@ -6,27 +6,30 @@ int main()
     char string1[20];
     char string2[20];
     int count;
-    printf("Input String[n1] : ");
+
     gets(string1);
-    printf("Input String[n2] : ");
     gets(string2);
     
-    
+    //loop เทียบ 
     for(int i = 0; i < strlen(string1); i++) {
-        count = 1;
-        for(int j = i; j < strlen(string2); j++) {
-                //printf("%c %c [i]=%d[j]=%d\n",string1[i],string2[j],i,j);
+        count = 0;
+        for(int j = 0; j < strlen(string2); j++) {
+                // printf("%c %c [i]=%d[j]=%d count = %d\n",string1[i],string2[j],i,j,count);
             if(string1[i] == string2[j] && string1[i] != ' ') {
+
                 count++;
 
-
-                
+                //กำหนดให้ตัวที่เทียเเล้วเป็น 0
                 string2[j] = '0';
+
+
             }
         }
+
         
-        if(count > 1 && string1[i] != '0')
-            printf("%c = %d\n", string1[i],count/2);
+        if( count>0&&string1[i] != '0')
+
+            printf("%c = %d\n", string1[i],count);
     }
 
     return 0;
